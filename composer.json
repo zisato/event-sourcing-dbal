@@ -1,0 +1,41 @@
+{
+  "name": "zisato/event-sourcing-dbal",
+  "description": "Event Sourcing DBAL",
+  "license": "propietary",
+  "authors": [
+    {
+      "name": "Javier Rodriguez",
+      "email": "javierrodriguezcuevas@gmail.com"
+    }
+  ],
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true,
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zisato\\EventSourcing\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Zisato\\EventSourcing\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "ext-json": "*",
+    "doctrine/dbal": "^3.6",
+    "doctrine/migrations": "^3.6",
+    "zisato/event-sourcing": "@dev"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpcov": "^9.0",
+    "phpunit/phpunit": "^10.2",
+    "rector/rector": "^0.17.1"
+  }
+}

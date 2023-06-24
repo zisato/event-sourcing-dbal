@@ -1,0 +1,11 @@
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+.phpunit.cache
+###< phpunit/phpunit ###
+
+/vendor/
+.vscode/
+/build/
+bin/*
+!bin/*.sh
