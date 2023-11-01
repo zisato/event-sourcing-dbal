@@ -45,7 +45,7 @@ AND (`value_id` = :value_id)
     /**
      * @return mixed
      */
-    public function get(string $aggregateId, IdentityInterface $valueId)
+    public function get(string $aggregateId, IdentityInterface $valueId): mixed
     {
         $result = $this->connection->fetchAssociative(
             self::SQL_GET,
@@ -69,7 +69,7 @@ AND (`value_id` = :value_id)
     /**
      * @param mixed $value
      */
-    public function save(string $aggregateId, IdentityInterface $valueId, $value): void
+    public function save(string $aggregateId, IdentityInterface $valueId, mixed $value): void
     {
         $this->connection->insert(
             self::TABLE_NAME,

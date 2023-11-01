@@ -9,44 +9,8 @@ services:
       - DATABASE_PASSWORD=root
       - DATABASE_PORT=3306
       - DATABASE_USERNAME=root
-      - DATABASE_NAME=event_sourcing
-      - DATABASE_URL=mysql://root:root@mysql:3306/event_sourcing
-    links:
-      - mysql
-    volumes:
-      - ../:/var/www:delegated
-    working_dir: /var/www/
-
-  php-cli-pcov:
-    build:
-      context: ./php-8.1
-      target: php-cli-pcov
-    environment:
-      - DATABASE_HOST=mysql
-      - DATABASE_PASSWORD=root
-      - DATABASE_PORT=3306
-      - DATABASE_USERNAME=root
-      - DATABASE_NAME=event_sourcing
-      - DATABASE_URL=mysql://root:root@mysql:3306/event_sourcing
-    links:
-      - mysql
-    volumes:
-      - ../:/var/www:delegated
-    working_dir: /var/www/
-  
-  php-cli-xdebug:
-    build:
-      context: ./php-8.1
-      target: php-cli-xdebug
-    environment:
-      - DATABASE_HOST=mysql
-      - DATABASE_PASSWORD=root
-      - DATABASE_PORT=3306
-      - DATABASE_USERNAME=root
-      - DATABASE_NAME=event_sourcing
-      - DATABASE_URL=mysql://root:root@mysql:3306/event_sourcing
-      - XDEBUG_MODE=debug
-      - XDEBUG_CONFIG=client_host=host.docker.internal client_port=9003
+      - DATABASE_NAME=event_sourcing_dbal
+      - DATABASE_URL=mysql://root:root@mysql:3306/event_sourcing_dbal
     links:
       - mysql
     volumes:
@@ -58,7 +22,7 @@ services:
       context: ./php-8.1
       target: mysql
     environment:
-      - MYSQL_DATABASE=event_sourcing
+      - MYSQL_DATABASE=event_sourcing_dbal
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - 3306:3306

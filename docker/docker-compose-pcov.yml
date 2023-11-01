@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  php-cli:
+    build:
+      context: ./php-8.1
+      target: php-cli-pcov
+  
+  php-cli-xdebug:
+    build:
+      context: ./php-8.1
+      target: php-cli-xdebug
+    environment:
+      - XDEBUG_MODE=debug
+      - XDEBUG_CONFIG=client_host=host.docker.internal client_port=9003
+    links:
+      - mysql
+    volumes:
+      - ../:/var/www:delegated
+    working_dir: /var/www/

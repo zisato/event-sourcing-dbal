@@ -26,7 +26,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # ----------
 
 
-FROM php AS php-cli-xdebug
+FROM php-cli AS php-cli-xdebug
 
 # Install xdebug by pecl
 RUN pecl install xdebug \
@@ -34,7 +34,7 @@ RUN pecl install xdebug \
 # ----------
 
 
-FROM php AS php-cli-pcov
+FROM php-cli AS php-cli-pcov
 
 # Install pcov by pecl
 RUN pecl install pcov \
